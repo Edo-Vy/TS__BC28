@@ -1,5 +1,6 @@
 //tsrfc
 import React from "react";
+import { NavLink } from "react-router-dom";
 import productReducer, { Product } from "../../redux/reducers/productReducer";
 
 type Props = {
@@ -17,7 +18,7 @@ export default function ProductCart({ prod }: Props) {
         <h3 style={{height:55}}>{prod.name.length > 15 ? prod.name.slice(0,15) +'...' : prod.name}</h3>
         <p className="p-1">{prod.price}$</p>
         <div className="card-footer">
-          <button className="btn-success">Buy Now</button>
+          <NavLink to={`/detail/${prod.id}`} className="btn btn-success">Buy Now</NavLink>
         </div>
       </div>
     </div>

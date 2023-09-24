@@ -125,13 +125,15 @@ http.interceptors.response.use(
     // const originalRequest = err.configs;
     console.log(err.response.status);
     if (err.response.status === 400 || err.response.status === 404) {
-      history.push("/");
+      // history.push("/");
+      window.location.href = '/';
       return Promise.reject(err);
     }
 
     if (err.response.status === 401 || err.response.status === 403) {
       alert("Token không hợp lệ - Vui lòng đăng nhập lại !");
-      history.push("/login");
+      // history.push("/login");
+      window.location.href = '/login';
       return Promise.reject(err);
     }
   }
