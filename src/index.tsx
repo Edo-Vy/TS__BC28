@@ -25,6 +25,10 @@ import Register from "./pages/Register/Register";
 import Search from "./pages/Search/Search";
 import { http } from "./util/setting";
 import Loading from "./components/Loading/Loading";
+import AdminTemplates from "./templates/AdminTemplates/AdminTemplates";
+import AdminIndex from "./pages/Admin/AdminIndex/AdminIndex";
+import Users from "./pages/Admin/Users/Users";
+import Products from "./pages/Admin/Products/Products";
 // import Detail from "./pages/Detail/Detail";
 
 // Lazyload
@@ -40,6 +44,7 @@ const root = ReactDOM.createRoot(
 // react v6.4
 const routeReact = createBrowserRouter(
   createRoutesFromElements(
+    <>
     <Route path="" element={<HomeTemplates />}>
       <Route index element={<Home />}></Route>
       <Route path="detail">
@@ -67,6 +72,15 @@ const routeReact = createBrowserRouter(
       <Route path="search" element={<Search />}></Route>
       <Route path="*" element={<Navigate to="" />}></Route>
     </Route>
+    {/* Admin */}
+    <Route path="admin" element={<AdminTemplates/>}>
+      <Route index element={<AdminIndex/>}></Route>
+      <Route path="users" element={<Users/>}></Route>
+      <Route path="products" element={<Products/>}></Route>
+      <Route path="*" element={<Navigate to ="/admin"/>}></Route>
+      
+    </Route>
+    </>
   )
 );
 root.render(
@@ -102,3 +116,6 @@ root.render(
   //   </HistoryRouter>
   // </Provider>
 );
+
+
+/** action : không phải là component nên sẽ không sử dụng được history hay navigate */

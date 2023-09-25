@@ -7,10 +7,12 @@ type Props = {};
 export default function Loading({}: Props) {
   return (
     <div
-      className="position-fixed justify-content-center align-items-center"
+      className="position-fixed d-flex justify-content-center align-items-center"
       style={{
         background: "rgba(0,0,0, .5)",
         color: "#ffff",
+        height : "100%",
+        width : "100%",
       }}
     >
       Loading......
